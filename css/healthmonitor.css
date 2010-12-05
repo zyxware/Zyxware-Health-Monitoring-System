@@ -1,0 +1,630 @@
+/*
+  This file is part of Zyxware Health Monitoring System -
+  A Web Based application to track Diseases
+
+  Copyright (C) 2007 Zyxware Technologies
+    info@zyxware.com
+
+  For more information or to find the latest release, visit our
+  website at http://www.zyxware.com/
+
+  This program is free software; you can redistribute it and/or
+  modify it under the terms of the GNU General Public License as
+  published by the Free Software Foundation; either version 3 of the
+  License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful, but
+  WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
+  02111-1307, USA.
+
+  The GNU General Public License is contained in the file COPYING.
+*/
+body
+{
+	background-color:#FFFFFF;
+	font-family:sans-serif;
+	font-size:11px;
+	color:#000000;
+	margin:0px;
+}
+table,tr
+{
+	width:100%;
+	border-collapse:collapse;
+}
+td,th
+{
+	border-collapse:collapse;
+	padding:0px;
+}
+table.outerTable
+{
+	width:100%;
+}
+td.tdHeadingContent
+{
+	text-align:left;
+	padding-top:10px;
+	padding-bottom:8px;
+	padding-left:10px;
+	color:#A34717;
+	width:70%;
+	background-image:url('../images/headingContent.jpg');
+	background-repeat:repeat-x;
+}
+td.tdHeadingContentDate
+{
+	text-align:right;
+	padding-right:15px;
+	color:#A34717;
+	width:30%;
+	background-image:url('../images/headingContent.jpg');
+	background-repeat:repeat-x;
+}
+td.leftColLogin
+{
+}
+td.leftCol
+{
+	border-top:thick solid #DFDE8E;
+	border-top:none;
+	width:200px;
+	vertical-align:top;
+	background-color:#FDFDF5;
+	background-image:url('../images/leftColumn.jpg');
+	background-repeat:repeat-x;
+	border-left:thin solid #CCCCCC;
+}
+td.mdlCol
+{
+	padding:10px;
+	vertical-align:top;
+	background-color:#F9FAEA;
+	font-size:12px;
+}
+td.footer
+{
+	padding-bottom:3px;
+	padding-right:15px;	
+	text-align:right;
+	font-size:10px;
+	color:#A34717;
+	background-color:#FDFDF5;
+}
+td.mdlColTxt
+{
+	padding-top:50px;
+	padding-bottom:50px;
+	padding-left:275px;
+	padding-right:100px;
+}
+table.formTab
+{
+	width:80%;
+}
+table.formTabPopUp
+{
+	width:80%;
+}
+table.formTabLog
+{
+	width:60%;
+}
+td.formLabel
+{
+	padding:8px;
+	font-size:12px;
+	vertical-align:top;
+	width:140px;
+}
+td.formContent
+{
+	color:#A34717;
+	padding:5px;
+	vertical-align:top;
+	width:300px;
+}
+td.tdmapLabel
+{
+	padding:8px;
+	font-size:12px;
+	vertical-align:top;
+	width:60px;
+}
+td.tdmapContent
+{
+	color:#A34717;
+	padding:5px;
+	vertical-align:top;
+	width:60px;
+}
+div.errLogin
+{
+	background-color:#FFFF00;
+	color:#FF0000;
+	width:300px;
+}
+table.tblBckGrnd
+{
+	height:100%;
+}
+td.tdHeader
+{
+	text-align:left;
+	font-size:12px;
+	background-image:url('../images/gradient1.gif');
+	background-repeat:repeat-y;
+	color:#A34717;
+}
+a.highlight
+{
+	text-decoration:none;
+	color:#6d2C08;
+}
+a.highlightMenuSelect
+{
+	text-decoration:none;
+	/*color:#6D3C08;*/
+	color:#FF0000;	
+}
+div.dsplyWarning
+{
+	background-color:#FFFF00;
+	color:#FF0000;
+	display:none;
+	width:250px;
+}
+tr.hideTr
+{
+	display:none;
+}
+tr.showTr
+{
+}
+table.tblForm td
+{
+	padding-left:5px;
+}
+td.tdHeading
+{
+	text-align:center;
+}
+h3
+{
+	color:#973711;
+}
+th.tdBorder
+{
+	padding:5px;
+	border:thin solid #CCCCCC;
+	background-color:#E9E9DA;
+}
+td.tdContent
+{
+	font-size:11px;
+	border:thin solid #CCCCCC;
+	color:#000000;
+	padding: 2px;
+}
+input.printButton
+{
+	display:none;
+	margin-left:10px;
+	overflow:hidden;
+}
+td.formLabel1
+{
+	padding:8px;
+	font-size:14px;
+	vertical-align:top;
+	width:200px;
+}
+td.formContent1
+{
+	padding:5px;
+	vertical-align:top;
+	width:300px;
+}
+img.editButton
+{
+	border-style:none;
+}
+table.leftColmenuTab
+{
+	vertical-align:top;
+}
+td.leftColMenu
+{
+	font-size:11px;
+	text-align:left;
+	padding-top:10px;
+	padding-left:8px;
+	padding-bottom:3px;
+	padding-right:10px;
+	border-bottom:thin solid #CCCCCC;
+	border-right:thin solid #CCCCCC;
+}
+td.specialTd1
+{
+	width:10px;
+	border-width:1px;
+	border-bottom:solid #6D2C08;
+}
+td.tdWidth
+{
+	width:30px;
+}
+tr.trColor1
+{
+	background-color:#F4F4BB;
+}
+td.tdHighlight, td.tdHighlight1, td.tdHighlight2
+{
+	color:#6D2C08;
+	padding-left:3px;
+	padding-right:3px;
+	padding-top:8px;
+	padding-bottom:8px;
+	text-align:center;
+	border-right:2px solid #bda080;
+}
+td.tdHighlight
+{
+	border-bottom:thin solid #bda080;
+	background-image:url('../images/grad002.gif');
+	background-repeat:repeat;
+	
+}
+td.tdHighlight1
+{
+	background-color:#FFFFFF;
+}
+td.tdHighlight2
+{
+	border-bottom:thin solid #bda080;
+	background-color:#FFFFFF;
+}
+td.tdSpecial
+{
+	padding-top:0px;
+	height:30px;
+	padding-left:0px;
+	padding-right:0px;
+}
+td.tdAlign
+{
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+}
+table.tblGraph
+{
+	width:300px;;
+}
+td.tdRightBdr
+{
+	height:30px;
+	vertical-align:top;
+	text-align:right;
+	padding:0px;
+}
+td.tdTopBdr
+{
+	border-top:solid #000000;
+}
+td.tdCenterAlign
+{
+	text-align:center;
+}
+td.tdDiv
+{
+	vertical-align:bottom;
+	padding-bottom:0px;
+	padding-left:0px;
+	padding-right:0px;
+}
+img
+{
+	border:#FFFFFF;
+}
+td.lastTd
+{
+	background-image:url('../images/grad002.gif');
+	background-repeat:repeat;
+}
+td.lastTd1
+{
+	width:100%;
+	background-image:url('../images/changegrad.gif');
+	background-repeat:repeat;
+}
+table.tblContent
+{
+	width:100%;
+}
+td.tdDivision
+{
+	vertical-align:bottom;
+	border-right:solid #000000;
+	width:10px;
+}
+input.noBrdrInput
+{
+	border:none;
+	background-color:#F9FAEA;
+}
+td.leftColMenuSpcr
+{
+	width:200px;
+}
+td.tdContentImg 
+{
+	text-align:center;
+	border:thin solid #CCCCCC;
+	color:#000000;
+	padding: 5px;
+}
+img.lftColSprAdmin
+{
+}
+img.lftColSprGmo
+{
+	height:50px;
+}
+img.lftColSprDao
+{
+	height:200px;
+}
+img.lftColSprLogin
+{
+	height:218px;
+}
+img.lftColSprHspl
+{
+	width:200px;
+	height:387px;
+}
+tr.listTrColor
+{
+	background-color:#F6F6DE;
+}
+td.tdButton
+{
+	padding:10px;
+}
+td.tdRightAlign
+{
+	text-align:right;
+	border:thin solid #999999;
+	color:#000000;
+	padding: 5px;
+}
+table.tblBorder
+{
+	border-left:2px solid #BDA080;
+	padding:0px;
+}
+img.imgInfo1
+{
+	height:350px;
+	width:150px;
+}
+img.imgInfo2
+{
+	height:100px;
+	width:150px;
+}
+table.displayMap
+{
+	width:100%;
+	height:100%;
+	vertical-align:top;
+	background-color:#F9FAEA;	
+}
+body.popupPlace
+{
+	background-color:#F9FAEA;
+}
+td.tdBrdr
+{
+	border-left:2px solid #BDA080;
+}
+div.mapbutton
+{
+	padding-left:600px;
+}
+td.tdHide
+{
+	display:none;
+}
+i
+{
+	font-size:10px;
+	color:#A34717;	
+}
+table.outerpagenumber  
+{
+	width:2px;
+}
+table.outerpagenumber a
+{
+	text-decoration:none;
+	color:#753712;
+}
+a.footerLink
+{
+	font-size:10px;
+	color:#A34717;
+	/*text-decoration:none;*/	
+}
+input.subButton, input.backButton, input.delButton, input.chStatusButton, input.appButton, input.logButton, input.rstButton
+{
+	background-color:#EEEEDA;
+	color:#973711;
+	border-right-color: #EE99AA;
+	border-bottom-color: #EE99AA;
+	border-left-color: #F8EAE9;
+	border-top-color: #F8EAE9;
+/*	background-repeat:no-repeat;
+	padding-left:18px;*/
+}
+/*
+input.subButton
+{
+	background-image:url('../images/submitbtn.gif');
+}
+input.backButton
+{
+	background-image:url('../images/backbtn.gif');
+}
+input.delButton
+{
+	background-image:url('../images/deletebtn.gif');
+}
+input.appButton
+{
+	background-image:url('../images/approvebtn.gif');
+}
+input.logButton
+{
+	background-image:url('../images/loginbtn.gif');
+}
+input.rstButton
+{
+	background-image:url('../images/resetbtn.gif');
+}
+input.chStatusButton
+{
+	background-image:url('../images/changebtn.gif');
+}*/
+td.selectOption
+{
+	width:300px;
+}
+td.tdSpecialPadding
+{
+	padding:0px;
+}
+a.linkstyle
+{
+	color:#0000FF;
+}
+table.formSubmitTable
+{
+	height:125px;
+	width:400px;
+}
+input.loginform
+{
+	width:150px;
+}
+table.tabFormSubmit
+{
+	height:75px;
+	width:400px;
+}
+td.tdContent1
+{
+	padding-left:7px;
+	padding-right:5px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+h1.mainHeading
+{
+	font-size:20px;
+}
+img.imgGraph
+{
+	vertical-align:bottom;
+}
+textarea.displayBack
+{
+	padding-top:20px;
+	padding-left:10px;
+	border:none;
+	/*background-color:#F9FAEA;*/
+}
+table.displyLstInfo
+{
+	color:#753712;	
+}
+td.pgnSelectedPage
+{
+	padding:3px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border:1px solid #B16909;
+	color:#AA0D0B;
+}
+td.pgnUnSelectedPage
+{
+  padding:3px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border:none;
+}
+td.pgnOuterTableSkipLeft
+{
+	padding-right:2px;
+}
+td.pgnOuterTableSkipRight
+{
+	width:100px;
+}
+td.tdContentDisease
+{
+	padding-top:20px;
+	padding-left:8px;
+}
+td.tdContentDiseaseInfo
+{
+	padding:8px;
+	padding-top:20px;
+}
+span.impMessage
+{
+	font-size:14px;
+}
+td.tdEventContent
+{
+	font-size:11px;
+	border:thin solid #CCCCCC;
+	color:#000000;
+	padding-left: 2px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+td.tdEventContentAlign
+{
+	font-size:11px;
+	border:thin solid #CCCCCC;
+	color:#000000;
+	padding-left: 2px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align:center;
+}
+table.dispyLatLong
+{
+	width:100%; 
+	height:70px; 
+	background-color:#F6F6DE;
+	font-size:12px; 
+}
+td.dispyLatLongContent
+{
+	width:30px;
+	padding:5px;
+}
+td.headingdispyLatLong
+{
+	text-align:center;
+}
+
