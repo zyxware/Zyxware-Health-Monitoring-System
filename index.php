@@ -1,10 +1,11 @@
 <?php
+
 /*
   This file is part of Zyxware Health Monitoring System -
   A Web Based application to track Diseases
 
   Copyright (C) 2007 Zyxware Technologies
-    info@zyxware.com
+  info@zyxware.com
 
   For more information or to find the latest release, visit our
   website at http://www.zyxware.com/
@@ -25,6 +26,6 @@
   02111-1307, USA.
 
   The GNU General Public License is contained in the file COPYING.
-*/
-	header('Location:maps/main.php');
-?>
+ */
+header('Location:maps/main.php');
+

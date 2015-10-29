@@ -1,10 +1,11 @@
 <?php
+
 /*
   This file is part of Zyxware Health Monitoring System -
   A Web Based application to track Diseases
 
   Copyright (C) 2007 Zyxware Technologies
-    info@zyxware.com
+  info@zyxware.com
 
   For more information or to find the latest release, visit our
   website at http://www.zyxware.com/
@@ -25,17 +26,17 @@
   02111-1307, USA.
 
   The GNU General Public License is contained in the file COPYING.
-*/
-	$userName="";
-	$userType="";
-	session_start();
-	include("../include/projectlib.inc.php");
-	includeHeaders();
-	$Connect=processInputData();
-	$userName=$_SESSION['userName'];
-	$userType=$_SESSION['userType'];
-	insertEventData('Logout','Logout_User',$userName,"Success");
-	mysql_close($Connect);
-	session_destroy();
-	header('Location:index.php');
-?>
+ */
+$userName = "";
+$userType = "";
+session_start();
+include("../include/projectlib.inc.php");
+includeHeaders();
+$Connect = processInputData();
+$userName = $_SESSION['userName'];
+$userType = $_SESSION['userType'];
+insertEventData('Logout', 'Logout_User', $userName, "Success");
+mysql_close($Connect);
+session_destroy();
+header('Location:index.php');
+
