@@ -4,7 +4,7 @@
   A Web Based application to track Diseases
 
   Copyright (C) 2007 Zyxware Technologies
-    info@zyxware.com
+  info@zyxware.com
 
   For more information or to find the latest release, visit our
   website at http://www.zyxware.com/
@@ -25,93 +25,83 @@
   02111-1307, USA.
 
   The GNU General Public License is contained in the file COPYING.
-*/
+ */
 session_start();
 include("../include/projectlib.inc.php");
 includeHeaders();
-$Connect=processInputData();
+$Connect = processInputData();
 isLoggedin();
 $authorise = isAuthorize();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<?php
-		includeCss();
-		includeJs();
+  <head>
+    <?php
+    includeCss();
+    includeJs();
     ?>
-		<script type="text/javascript">
-		<!--
-		//-->
-		</script>
-		<title>
-			Update Date
-		</title>
-	</head>
-	<body>
-		<?php
-		showHeader();
-		showLeftColLayout();
-		showLeftCol($authorise);
-		showMdlColLayout();
-		showMdlCol();
-		showFooter();
-		?>
-	</body>
+    <title>
+      Update Date
+    </title>
+  </head>
+  <body>
+    <?php
+    showHeader();
+    showLeftColLayout();
+    showLeftCol($authorise);
+    showMdlColLayout();
+    showMdlCol();
+    showFooter();
+    ?>
+  </body>
 </html>
 <?php
-function showLeftCol($authorise)
-{
-	showLeftMenuBar($authorise);
-}
-function showMdlCol()
-{
-	$year=null;
-	$month=null;
-	$day=null;
-	$fullDay = strtEndDateMonthDiff();
-	$today = $fullDay[0];
-	$dateArr = explode("-",$today);
-	$curyear = $dateArr[0];
-	$curmonth = $dateArr[1];
-	$curday = $dateArr[2];
-	$year = $curyear;
-	$month = $curmonth;
-	$resultCaseReport = mysql_query("select casereportid, casedate from casereport");
-	while($rowCaseReport = mysql_fetch_array($resultCaseReport))
-	{
-		$id = $rowCaseReport['casereportid'];
-		$caseDate = explode("-",$rowCaseReport['casedate']);
-		if( strtotime($rowCaseReport['casedate']) < strtotime($today) )
-		{
-			if($curday < $caseDate[2])
-				$day = $caseDate[2]+1;
-			else
-				$day = $curday;
-			$updatedate=$year.'-'.$month.'-'.$day;
-			$day=null;
-			mysql_query("update casereport set casedate = '".$updatedate."' where casereportid='".$id."' ") or die(mysql_error());
-		}		
-	}
-	$resultBulkReport = mysql_query("select createdon,bulkcaseid from bulkcase");
-	while($rowBulkReport = mysql_fetch_array($resultBulkReport))
-	{
-		$id = $rowBulkReport['bulkcaseid'];
-		$caseDate = explode("-",$rowBulkReport['createdon']);
-		if( strtotime($rowBulkReport['createdon']) < strtotime($today) )
-		{
-			if($curday < $caseDate[2])
-				$day = $caseDate[2]+1;
-			else
-				$day = $curday;
-			$updatedate=$year.'-'.$month.'-'.$day;
-			$day=null;
-			mysql_query("update bulkcase set createdon = '".$updatedate."' where bulkcaseid='".$id."' ") or die(mysql_error());
-		}		
-	}
 
-	echo 'Date successfully updated';
+function showLeftCol($authorise) {
+  showLeftMenuBar($authorise);
+}
+
+function showMdlCol() {
+  $year = null;
+  $month = null;
+  $day = null;
+  $fullDay = strtEndDateMonthDiff();
+  $today = $fullDay[0];
+  $dateArr = explode("-", $today);
+  $curyear = $dateArr[0];
+  $curmonth = $dateArr[1];
+  $curday = $dateArr[2];
+  $year = $curyear;
+  $month = $curmonth;
+  $resultCaseReport = mysql_query("select casereportid, casedate from casereport");
+  while ($rowCaseReport = mysql_fetch_array($resultCaseReport)) {
+    $id = $rowCaseReport['casereportid'];
+    $caseDate = explode("-", $rowCaseReport['casedate']);
+    if (strtotime($rowCaseReport['casedate']) < strtotime($today)) {
+      if ($curday < $caseDate[2])
+        $day = $caseDate[2] + 1;
+      else
+        $day = $curday;
+      $updatedate = $year . '-' . $month . '-' . $day;
+      $day = null;
+      mysql_query("update casereport set casedate = '" . $updatedate . "' where casereportid='" . $id . "' ") or die(mysql_error());
+    }
+  }
+  $resultBulkReport = mysql_query("select createdon,bulkcaseid from bulkcase");
+  while ($rowBulkReport = mysql_fetch_array($resultBulkReport)) {
+    $id = $rowBulkReport['bulkcaseid'];
+    $caseDate = explode("-", $rowBulkReport['createdon']);
+    if (strtotime($rowBulkReport['createdon']) < strtotime($today)) {
+      if ($curday < $caseDate[2])
+        $day = $caseDate[2] + 1;
+      else
+        $day = $curday;
+      $updatedate = $year . '-' . $month . '-' . $day;
+      $day = null;
+      mysql_query("update bulkcase set createdon = '" . $updatedate . "' where bulkcaseid='" . $id . "' ") or die(mysql_error());
+    }
+  }
+  echo 'Date successfully updated';
 }
 
 mysql_close($Connect);
-?>

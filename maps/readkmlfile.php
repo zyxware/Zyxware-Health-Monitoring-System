@@ -1,10 +1,11 @@
 <?php
+
 /*
   This file is part of Zyxware Health Monitoring System -
   A Web Based application to track Diseases
 
   Copyright (C) 2007 Zyxware Technologies
-    info@zyxware.com
+  info@zyxware.com
 
   For more information or to find the latest release, visit our
   website at http://www.zyxware.com/
@@ -25,18 +26,15 @@
   02111-1307, USA.
 
   The GNU General Public License is contained in the file COPYING.
-*/
-if(isset($_GET['kmlfile']))
-{
-	$fileName=$_GET['kmlfile'];
-	header('Content-Type: application/vnd.google-earth.kml+xml');
-	$fileNamePath='../data-kml/'.$fileName;
-	$fileHandle=fopen($fileNamePath,'r')or die("Can't open file");
-	$kmldata=fread($fileHandle,filesize($fileNamePath));
-	echo $kmldata;
+ */
+if (isset($_GET['kmlfile'])) {
+  $fileName = $_GET['kmlfile'];
+  header('Content-Type: application/vnd.google-earth.kml+xml');
+  $fileNamePath = '../data-kml/' . $fileName;
+  $fileHandle = fopen($fileNamePath, 'r')or die("Can't open file");
+  $kmldata = fread($fileHandle, filesize($fileNamePath));
+  echo $kmldata;
 }
-else
-{
-	echo 'No file is selected';
+else {
+  echo 'No file is selected';
 }
-?>

@@ -4,7 +4,7 @@
   A Web Based application to track Diseases
 
   Copyright (C) 2007 Zyxware Technologies
-    info@zyxware.com
+  info@zyxware.com
 
   For more information or to find the latest release, visit our
   website at http://www.zyxware.com/
@@ -25,43 +25,39 @@
   02111-1307, USA.
 
   The GNU General Public License is contained in the file COPYING.
-*/
+ */
 session_start();
-	include("../include/projectlib.inc.php");
+include("../include/projectlib.inc.php");
 ?>
 <html>
-	<head>
-<?php
-				includeCss();
-?>
-	</head>
-	<body style="border-bottom:2px solid #BDA080;">
-		<table class="tblBckGrnd">	
-			<tr>
-<?php
-	if(isset($_GET['imagePadding']))
-	{
-		$paddingleft=($_GET['imagePadding']*1)+2;
-		$paddingTopBottom=$_GET['imagePadding'];
-	}
-	else
-	{
-		$paddingleft=10;
-		$paddingTopBottom=8;
-	}
-				echo '<td class="tdHeader" style="padding-top:'.$paddingTopBottom.'px;padding-bottom:'.$paddingTopBottom.'px;padding-left:'.$paddingleft.'px">';
-				echo	'<img src="../images/kerala.gif" alt="Image"';
-				if(isset($_GET['imageheight']))
-				{
-					echo 'style="height:'.$_GET['imageheight'].'px">';
-				}
-				else
-				{
-					echo '>';
-				}
-?>
-				</td>
-			</tr>
-		</table>
-	</body>
+  <head>
+    <?php
+    includeCss();
+    ?>
+  </head>
+  <body style="border-bottom:2px solid #BDA080;">
+    <table class="tblBckGrnd">	
+      <tr>
+        <?php
+        if (isset($_GET['imagePadding'])) {
+          $paddingleft = ($_GET['imagePadding'] * 1) + 2;
+          $paddingTopBottom = $_GET['imagePadding'];
+        }
+        else {
+          $paddingleft = 10;
+          $paddingTopBottom = 8;
+        }
+        echo '<td class="tdHeader" style="padding-top:' . $paddingTopBottom . 'px;padding-bottom:' . $paddingTopBottom . 'px;padding-left:' . $paddingleft . 'px">';
+        echo '<img src="../images/kerala.gif" alt="Image"';
+        if (isset($_GET['imageheight'])) {
+          echo 'style="height:' . $_GET['imageheight'] . 'px">';
+        }
+        else {
+          echo '>';
+        }
+        ?>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>	

@@ -4,7 +4,7 @@
   A Web Based application to track Diseases
 
   Copyright (C) 2007 Zyxware Technologies
-    info@zyxware.com
+  info@zyxware.com
 
   For more information or to find the latest release, visit our
   website at http://www.zyxware.com/
@@ -25,61 +25,57 @@
   02111-1307, USA.
 
   The GNU General Public License is contained in the file COPYING.
-*/
+ */
 session_start();
 include("../include/projectlib.inc.php");
 includeHeaders();
-$Connect=processInputData();
+$Connect = processInputData();
 isLoggedin();
 $authorise = isAuthorize();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<?php
-		includeCss();
-		includeJs();
-	    ?>
-			<script type="text/javascript">
-				<!--
-					function changeViewPage(lastUrl)
-					{
-						//window.location = "./listcasereport.php";
-						window.location = "./"+lastUrl;
-					}
-				//-->
-			</script>
-			
-		<title>
-			View Case Report
-		</title>
-	</head>
-	<body>
-		<?php
-			showHeader();
-			showLeftColLayout();
-			showLeftCol($authorise);
-			showMdlColLayout();
-			showMdlCol($authorise);
-			showFooter();
-		?>
-	</body>
+  <head>
+    <?php
+    includeCss();
+    includeJs();
+    ?>
+    <script type="text/javascript">
+      <!--
+        function changeViewPage(lastUrl) {
+        window.location = "./" + lastUrl;
+      }
+      //-->
+    </script>
+
+    <title>
+      View Case Report
+    </title>
+  </head>
+  <body>
+    <?php
+    showHeader();
+    showLeftColLayout();
+    showLeftCol($authorise);
+    showMdlColLayout();
+    showMdlCol($authorise);
+    showFooter();
+    ?>
+  </body>
 </html>
 
 <?php
-function showLeftCol($authorise)
-{
-	showLeftMenuBar($authorise);
+
+function showLeftCol($authorise) {
+  showLeftMenuBar($authorise);
 }
 
-function showMdlCol($UserType)
-{
-	if($UserType=="DAO" || $UserType=="GMO" || $UserType=="HOSPITAL" || $UserType=="ADMIN")
-	{
-		getLastUrl();
-		$lastUrl=$_SESSION['lastUrl'];
-		$id=$_GET['caseid'];
-		$result = mysql_query("SELECT hospital.name as hname, district.name as 
+function showMdlCol($UserType) {
+  if ($UserType == "DAO" || $UserType == "GMO" || $UserType == "HOSPITAL" || $UserType == "ADMIN") {
+    getLastUrl();
+    $lastUrl = $_SESSION['lastUrl'];
+    $id = $_GET['caseid'];
+    $result = mysql_query("SELECT hospital.name as hname, district.name as 
 			distname, postoffice.name as pname, disease.name as dname, fatal, reportedon, 
 			diedon, casedate, casereport.name as cname, age, sex, address1, address2, 
 			casereport.pincode, createdon    
@@ -88,9 +84,9 @@ function showMdlCol($UserType)
 			LEFT JOIN hospital on casereport.hospitalid = hospital.hospitalid
 			LEFT JOIN postoffice on casereport.postofficeid = postoffice.postofficeid
 			LEFT JOIN disease on casereport.diseaseid = disease.diseaseid
-			WHERE casereportid='$id' ")	or die(mysql_error());
-		$row = mysql_fetch_array($result);
-		echo"	<table>
+			WHERE casereportid='$id' ") or die(mysql_error());
+    $row = mysql_fetch_array($result);
+    echo"	<table>
 			<tr>
 				<td>
 					<h3> View Case Report</h3>
@@ -104,7 +100,7 @@ function showMdlCol($UserType)
 									Name of Patient
 							</td>
 							<td class=\"formContent\">
-							:	".$row['cname']."
+							:	" . $row['cname'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -112,7 +108,7 @@ function showMdlCol($UserType)
 								Age
 							</td>
 							<td class=\"formContent\">
-								:	".$row['age']."
+								:	" . $row['age'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -120,7 +116,7 @@ function showMdlCol($UserType)
 								Sex
 							</td>
 							<td class=\"formContent\">
-								:	".$row['sex']."
+								:	" . $row['sex'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -128,7 +124,7 @@ function showMdlCol($UserType)
 								Address1
 							</td>
 							<td class=\"formContent\">
-								:	".$row['address1']."
+								:	" . $row['address1'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -136,7 +132,7 @@ function showMdlCol($UserType)
 								Address2
 							</td>
 							<td class=\"formContent\">
-								:	".$row['address2']."
+								:	" . $row['address2'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -144,7 +140,7 @@ function showMdlCol($UserType)
 								District
 							</td>
 							<td class=\"formContent\">
-								:	".$row['distname']."
+								:	" . $row['distname'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -152,7 +148,7 @@ function showMdlCol($UserType)
 								Post Office
 							</td>
 							<td class=\"formContent\">
-								:	".$row['pname']."
+								:	" . $row['pname'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -160,7 +156,7 @@ function showMdlCol($UserType)
 								Pincode
 							</td>
 							<td class=\"formContent\">
-								:	".$row['pincode']."
+								:	" . $row['pincode'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -168,7 +164,7 @@ function showMdlCol($UserType)
 								Hospital
 							</td>
 							<td class=\"formContent\" >
-								:	".$row['hname']."
+								:	" . $row['hname'] . "
 							</td>
 						</tr>
 						<tr>
@@ -176,7 +172,7 @@ function showMdlCol($UserType)
 								Disease
 							</td>
 							<td class=\"formContent\">
-								:	".$row['dname']."
+								:	" . $row['dname'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -184,7 +180,7 @@ function showMdlCol($UserType)
 								Status
 							</td>
 							<td class=\"formContent\">
-								:	".$row['fatal']."
+								:	" . $row['fatal'] . "
 							</td>	
 						</tr>
 						<tr>
@@ -192,7 +188,7 @@ function showMdlCol($UserType)
 								Reported on
 							</td>
 							<td class=\"formContent\">
-								:	".getDateFromDb($row['reportedon'])."
+								:	" . getDateFromDb($row['reportedon']) . "
 							</td>	
 						</tr>
 						<tr>
@@ -201,22 +197,20 @@ function showMdlCol($UserType)
 							</td>
 							<td class=\"formContent\">
 								: ";
-							if($row['diedon'] !="")
-							{
-								echo getDateFromDb($row['diedon']);
-							}
-							else
-							{
-								echo $row['diedon'];
-							}
-							echo"</td>	
+    if ($row['diedon'] != "") {
+      echo getDateFromDb($row['diedon']);
+    }
+    else {
+      echo $row['diedon'];
+    }
+    echo"</td>	
 						</tr>
 						<tr>
 							<td class=\"formLabel\">
 								Case Date
 							</td>
 							<td class=\"formContent\">
-								:	".getDateFromDb($row['casedate'])."
+								:	" . getDateFromDb($row['casedate']) . "
 							</td>	
 						</tr>
 						<tr>
@@ -224,27 +218,23 @@ function showMdlCol($UserType)
 								Created on
 							</td>
 							<td class=\"formContent\">
-								:	".getDateFromDb($row['createdon'])."
+								:	" . getDateFromDb($row['createdon']) . "
 							</td>	
 						</tr>
 						<tr>
 							<td>
 							</td>
 							<td>";
-								echo'<input class="backButton" type="button" value="Back" name="back"
-									onclick="javascript:changeViewPage(\''.$lastUrl.'\')" />';
-							echo"</td>
+    echo'<input class="backButton" type="button" value="Back" name="back"
+									onclick="javascript:changeViewPage(\'' . $lastUrl . '\')" />';
+    echo"</td>
 						</tr>
 					</table>	
 				</td>
 			</tr>
 		</table>";
-	}
-	else
-	{
-		echo'<h3>You are not Authorised to view this page</h3>';
-	}
+  }
+  else {
+    echo'<h3>You are not Authorised to view this page</h3>';
+  }
 }
-
-
-
